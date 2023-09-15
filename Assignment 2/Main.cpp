@@ -5,7 +5,7 @@
 
  Description:
 
- Part 1 works with a quadratic equation using classes.
+ Part 1 
  Part 2 creates a custom random seed generator that also uses classes.
  Part 3 does math calculations with rational numbers, also uses a class.
 
