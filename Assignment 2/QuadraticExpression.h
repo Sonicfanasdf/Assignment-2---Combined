@@ -60,6 +60,14 @@ public:
     // Post-Condition: returns coefficientX. Accessors function to get(view) the value of coefficientX
     int getX() const;
 
+    void numRoots() const;
+
+    void getEvaluation() const;
+
+  //Precondition: NA
+//Postcondition: calculates the roots of quadratic equation and prints
+    void getRoots() const;
+    
     // Pre-Condition: no parameters
     // Post-Condition: no return. Destructor
     ~QuadraticExpression();

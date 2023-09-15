@@ -82,6 +82,72 @@ int QuadraticExpression::getX() const
     return coefficientX;
 }
 
+void QuadraticExpression::numRoots() const
+{
+    double discriminant = 0;
+    double denominator = 0;
+
+    discriminant = (pow(coefficientB, 2)) - (4 * coefficientA * coefficientC);
+    denominator = 2 * coefficientA;
+
+    if (discriminant < 0 || denominator == 0)
+    {
+        std::cout << "\n\tnumber of real roots: 0\n";
+    }
+    else if (discriminant == 0)
+    {
+        std::cout << "\n\tnumber of real roots: 1\n";
+    }
+    else if (discriminant > 0)
+    {
+        std::cout << "\n\tnumber of real roots: 2\n";
+    }
+}
+
+//Precondition: NA
+//Postcondition: prints out result of solved quadratic eqaution with the given x
+void QuadraticExpression::getEvaluation() const
+{
+    std::cout << std::endl << "X = " << coefficientX << std::endl;
+
+    double result = 0;
+
+    result = coefficientA * (pow(coefficientX, 2)) + (coefficientB * coefficientX) + coefficientC;
+
+    std::cout << "\t\n" << coefficientA << "(" << coefficientX << "^2) + " << "(" << coefficientB << ")" << "(" << coefficientX << ")" << " + " << coefficientC << " = " << result << std::endl;
+}
+
+//Precondition: NA
+//Postcondition: calculates the roots of quadratic equation and prints
+void QuadraticExpression::getRoots() const
+{
+    double discriminant = 0;
+    double denominator = 0;
+    double root1 = 0;
+    double root2 = 0;
+
+    discriminant = (pow(coefficientB, 2)) - (4 * coefficientA * coefficientC);
+    denominator = 2 * coefficientA;
+
+    if (discriminant < 0 || denominator == 0)
+    {
+        std::cout << "\n\tno real roots\n";
+    }
+    else if (discriminant == 0)
+    {
+        root1 = (-coefficientB + (sqrt((pow(coefficientB, 2)) - (4 * coefficientA * coefficientC)))) / (2 * coefficientA);
+
+        std::cout << "\n\tonly real root: " << root1 << std::endl;
+    }
+    else if (discriminant > 0)
+    {
+        root1 = (-coefficientB + (sqrt((pow(coefficientB, 2)) - (4 * coefficientA * coefficientC)))) / (2 * coefficientA);
+        root2 = (-coefficientB - (sqrt((pow(coefficientB, 2)) - (4 * coefficientA * coefficientC)))) / (2 * coefficientA);
+
+        std::cout << "\n\ttwo real roots are: " << root2 << " and " << root1 << std::endl;
+    }
+}
+
 // Pre-Condition: no parameters
 // Post-Condition: no return. Sub menu, user picks an option.
 void QuadraticExpression::quadraticExpressionMenu()
@@ -149,65 +215,20 @@ void QuadraticExpression::quadraticExpressionMenu()
             // Set coefficient (coefficientX)
             coefficientX = inputInteger("\nEnter coefficient (X): ");
 
-            std::cout << std::endl << "X = " << coefficientX << std::endl;
-
-            double result = 0;
-
-            result = coefficientA * (pow(coefficientX, 2)) + (coefficientB * coefficientX) + coefficientC;
-
-            std::cout << "\t\n" << coefficientA << "(" << coefficientX << "^2) + " << "(" << coefficientB << ")" << "(" << coefficientX << ")" << " + " << coefficientC << " = " << result << std::endl;
+            getEvaluation();
 
             break;
         }
         case 'N':
         {
-            double discriminant = 0;
-            double denominator = 0;
+            numRoots();
 
-            discriminant = (pow(coefficientB, 2)) - (4 * coefficientA * coefficientC);
-            denominator = 2 * coefficientA;
-
-            if (discriminant < 0 || denominator == 0)
-            {
-                std::cout << "\n\tnumber of real roots: 0\n";
-            }
-            else if (discriminant == 0)
-            {
-                std::cout << "\n\tnumber of real roots: 1\n";
-            }
-            else if (discriminant > 0)
-            {
-                std::cout << "\n\tnumber of real roots: 2\n";
-            }
             break;
         }
         case 'R':
         {
-            double discriminant = 0;
-            double denominator = 0;
-            double root1 = 0;
-            double root2 = 0;
+            getRoots();
 
-            discriminant = (pow(coefficientB, 2)) - (4 * coefficientA * coefficientC);
-            denominator = 2 * coefficientA;
-
-            if (discriminant < 0 || denominator == 0)
-            {
-                std::cout << "\n\tno real roots\n";
-            }
-            else if (discriminant == 0)
-            {
-                root1 = (-coefficientB + (sqrt((pow(coefficientB, 2)) - (4 * coefficientA * coefficientC)))) / (2 * coefficientA);
-
-                std::cout << "\n\tonly real root: " << root1 << std::endl;
-            }
-            else if (discriminant > 0)
-            {
-                root1 = (-coefficientB + (sqrt((pow(coefficientB, 2)) - (4 * coefficientA * coefficientC)))) / (2 * coefficientA);
-                root2 = (-coefficientB - (sqrt((pow(coefficientB, 2)) - (4 * coefficientA * coefficientC)))) / (2 * coefficientA);
-
-                std::cout << "\n\ttwo real roots are: " << root2 << " and " << root1 << std::endl;
-            }
             break;
         }
         default:
