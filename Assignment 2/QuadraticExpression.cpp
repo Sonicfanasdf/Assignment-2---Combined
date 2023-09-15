@@ -81,7 +81,8 @@ int QuadraticExpression::getX() const
 {
     return coefficientX;
 }
-
+//Precondition: NA
+//Postcondition: prints out number of roots Quadratic equation has
 void QuadraticExpression::numRoots() const
 {
     double discriminant = 0;
@@ -213,7 +214,7 @@ void QuadraticExpression::quadraticExpressionMenu()
         case 'E':
         {
             // Set coefficient (coefficientX)
-            coefficientX = inputInteger("\nEnter coefficient (X): ");
+            coefficientX = inputInteger("\nEnter Variable (X): ");
 
             getEvaluation();
 

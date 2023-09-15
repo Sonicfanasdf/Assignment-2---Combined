@@ -2,6 +2,8 @@
 
 // Credit:  Saul Merino & John Kim - Pseudorandom
 
+//Precondition: None
+//Postcondition: None
 Pseudorandom::Pseudorandom()
 {
     seed = 1;
@@ -9,33 +11,39 @@ Pseudorandom::Pseudorandom()
     increment = 725;
     modulus = 729;
 }
-
+//Precondition: A Positve or Negative Integer
+//Postcondition: None
 void Pseudorandom::setSeed(int newSeed)
 {
     seed = newSeed;
 }
-
+//Precondition: A Positive or Negative Integer
+//Postcondition: None 
 void Pseudorandom::setMultiplier(int newMultiplier)
 {
     multiplier = newMultiplier;
 }
-
+//Precondition: A Positive or Negative Integer
+//Postcondition: None
 void Pseudorandom::setIncrement(int newIncrement)
 {
     increment = newIncrement;
 }
-
+//Precondition: A Positive or Negative Integer
+//Postcondition: None
 void Pseudorandom::setModulus(int newModulus)
 {
     modulus = newModulus;
 }
-
+//Precondition: None
+//Postcondition: None
 void Pseudorandom::generateSeed()
 {
     int newSeed = (multiplier * seed + increment) % modulus;
     setSeed(newSeed);
 }
-
+//Precondition: None
+//Postcondition: Returns a Double
 double Pseudorandom::generateNextIndirectNum()
 {
     generateSeed();
@@ -110,7 +118,7 @@ void Pseudorandom::pseudorandomMenu()
         }
         case 'K':
         {
-            pseudorandom.generateIndirectNumTable(pseudorandom);
+            pseudorandom.generateIndirectNumTable();
             break;
         }
         default:
@@ -153,7 +161,123 @@ char Pseudorandom::pseudorandomMenuOption()
 
 // Pre-Condition: 
 // Post-Condition:
-void Pseudorandom::generateIndirectNumTable(Pseudorandom pseudorandom)
+void Pseudorandom::generateIndirectNumTable()
 {
-    pseudorandom.setMultiplier(21);
+    const int SIZE = 1000000;
+
+    double sum = 0;
+    double mean = 0;
+    double difference = 0;
+    double differenceSum = 0;
+    double deviation = 0;
+    double gDistribution = 0;
+
+
+
+    int count1 = 0;
+    int count2 = 0;
+    int count3 = 0;
+    int count4 = 0;
+    int count5 = 0;
+    int count6 = 0;
+    int count7 = 0;
+    int count8 = 0;
+    int count9 = 0;
+    int count10 = 0;
+
+    double* dataArray = new double[SIZE];
+
+    setMultiplier(rand());
+    setIncrement(rand());
+    setModulus(rand());
+    std::cout << "\n\t experiment of pseudorandom with random multiplier, increment and modulus: \n\n";
+    std::cout << "\t============================================================================\n";
+    std::cout << "\tmultiplier = " << multiplier << ", increment = " << increment << ", modulus = " << modulus << std::endl << std::endl;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+
+        dataArray[i] = generateNextIndirectNum();
+
+        sum += dataArray[i];
+
+        //std::cout << dataArray[i] << std::endl;
+    }
+
+    for (int j = 0; j < SIZE; j++)
+    {
+        if (0 <= dataArray[j] && dataArray[j] < 0.1)
+        {
+            count1++;
+        }
+        else if (0.1 <= dataArray[j] && dataArray[j] < 0.2)
+        {
+            count2++;
+        }
+        else if (0.2 <= dataArray[j] && dataArray[j] < 0.3)
+        {
+            count3++;
+        }
+        else if (0.3 <= dataArray[j] && dataArray[j] < 0.4)
+        {
+            count4++;
+        }
+        else if (0.4 <= dataArray[j] && dataArray[j] < 0.5)
+        {
+            count5++;
+        }
+        else if (0.5 <= dataArray[j] && dataArray[j] < 0.6)
+        {
+            count6++;
+        }
+        else if (0.6 <= dataArray[j] && dataArray[j] < 0.7)
+        {
+            count7++;
+        }
+        else if (0.7 <= dataArray[j] && dataArray[j] < 0.8)
+        {
+            count8++;
+        }
+        else if (0.8 <= dataArray[j] && dataArray[j] < 0.9)
+        {
+            count9++;
+        }
+        else if (0.9 <= dataArray[j] && dataArray[j] < 1)
+        {
+            count10++;
+        }
+    }
+
+    std::cout << "\tRange           Number of Occurrences\n";
+    std::cout << "\t[0.0 ... 0.1)   " << count1 << std::endl;
+    std::cout << "\t[0.1 ... 0.2)   " << count2 << std::endl;
+    std::cout << "\t[0.2 ... 0.3)   " << count3 << std::endl;
+    std::cout << "\t[0.3 ... 0.4)   " << count4 << std::endl;
+    std::cout << "\t[0.4 ... 0.5)   " << count5 << std::endl;
+    std::cout << "\t[0.5 ... 0.6)   " << count6 << std::endl;
+    std::cout << "\t[0.6 ... 0.7)   " << count7 << std::endl;
+    std::cout << "\t[0.7 ... 0.8)   " << count8 << std::endl;
+    std::cout << "\t[0.8 ... 0.9)   " << count9 << std::endl;
+    std::cout << "\t[0.9 ... 1.0)   " << count10 << std::endl;
+
+    mean = sum / SIZE;
+
+    for (int k = 0; k < SIZE; k++)
+    {
+        difference = pow((dataArray[k] - mean), 2);
+
+        differenceSum += difference;
+    }
+
+    double median = (dataArray[499999] + dataArray[500000]) / 2;
+
+    deviation = sqrt((differenceSum / SIZE));
+
+
+    gDistribution = deviation * (mean - 6) + median;
+
+
+    
+
+    delete [] dataArray;
 }

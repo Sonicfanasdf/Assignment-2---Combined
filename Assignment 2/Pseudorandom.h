@@ -1,5 +1,7 @@
 #pragma once
+#define _USE_MATH_DEFINES
 #include <iostream>
+#include <cmath>
 
 // Credit:  Saul Merino & John Kim - Pseudorandom
 
@@ -29,5 +31,5 @@ public:
     double generateNextIndirectNum();
     void pseudorandomMenu();
     char pseudorandomMenuOption();
-    void generateIndirectNumTable(Pseudorandom pseudorandom);
+    void generateIndirectNumTable();
 };

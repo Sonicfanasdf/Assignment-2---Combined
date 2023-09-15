@@ -1,5 +1,5 @@
 /*
- Erik Santana
+ Joe Bryant
  9/4/23
  CPMR 131 - Professor Q
 
@@ -11,8 +11,8 @@
 
  Credit:
  Joe Bryant & Erik Santana - Part 1: Quadratic Expression
- Saul Merino & Oscar Gallardo - Part 2: Pseudorandom
- Otoniel Torres Bernal & John Kim  - Part 3: Rational Number
+ Saul Merino & John Kim - Part 2: Pseudorandom
+ Otoniel Torres Bernal & Thanh Tran   - Part 3: Rational Number
  */
 
 #include <iomanip>
