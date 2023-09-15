@@ -5,9 +5,12 @@
 
  Description:
 
- Part 1 
- Part 2 creates a custom random seed generator that also uses classes.
- Part 3 does math calculations with rational numbers, also uses a class.
+ Part 1 is a quadratic expression class that allows the user to view a quadratic formula with coefficients of their choosing. 
+ You can also solve for the roots and calculate the amount of roots
+ Part 2 is a Pseudorandom class that lets the user input a multiplier, seed, increment, and modulus. 
+ With these values, it generates a pseudorandom number.
+ Part 3 is a Rational class that lets the user input 2 fractions and do mathematical processes with these two fractions.
+ this includes addition, subtraction, division, and multiplication.
 
  Credit:
  Joe Bryant & Erik Santana - Part 1: Quadratic Expression
@@ -30,7 +33,8 @@ int main()
 
     return 0;
 }
-
+//Precondition: NA
+//Postcondition: Displays main menu
 void mainMenu()
 {
     QuadraticExpression quadraticExpression;

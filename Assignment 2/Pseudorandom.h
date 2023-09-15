@@ -18,11 +18,14 @@ private:
     int modulus;
 
 public:
+    //Precondition: None
+    //Postcondition: None
     Pseudorandom();
-    int getSeed() const { return seed; }
-    int getMultiplier() const { return multiplier; }
-    int getIncrement() const { return increment; }
-    int getModulus() const { return modulus; }
+    
+    int getSeed() const;
+    int getMultiplier() const;
+    int getIncrement() const;
+    int getModulus() const;
     void setSeed(int newSeed);
     void setMultiplier(int newMultiplier);
     void setIncrement(int newIncrement);

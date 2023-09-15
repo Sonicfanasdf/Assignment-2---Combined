@@ -11,6 +11,23 @@ Pseudorandom::Pseudorandom()
     increment = 725;
     modulus = 729;
 }
+int Pseudorandom::getSeed() const
+{
+    return seed;
+}
+
+int Pseudorandom::getMultiplier() const
+{
+    return multiplier;
+}
+int Pseudorandom::getIncrement() const
+{
+    return increment;
+}
+int Pseudorandom::getModulus() const
+{
+    return modulus;
+}
 //Precondition: A Positve or Negative Integer
 //Postcondition: None
 void Pseudorandom::setSeed(int newSeed)
@@ -133,8 +150,8 @@ void Pseudorandom::pseudorandomMenu()
     } while (true);
 }
 
-// Pre-Condition: 
-// Post-Condition:
+// Pre-Condition: NA
+// Post-Condition: Returns user option
 char Pseudorandom::pseudorandomMenuOption()
 {
     system("cls");
@@ -159,8 +176,8 @@ char Pseudorandom::pseudorandomMenuOption()
     return option;
 }
 
-// Pre-Condition: 
-// Post-Condition:
+// Pre-Condition: NA
+// Post-Condition: Generates number table
 void Pseudorandom::generateIndirectNumTable()
 {
     const int SIZE = 1000000;
