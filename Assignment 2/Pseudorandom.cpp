@@ -11,19 +11,26 @@ Pseudorandom::Pseudorandom()
     increment = 725;
     modulus = 729;
 }
+//Precondition:NA
+//Postcondition: returns seed
 int Pseudorandom::getSeed() const
 {
     return seed;
 }
-
+//Precondition:NA
+//Postcondition: return multiplier
 int Pseudorandom::getMultiplier() const
 {
     return multiplier;
 }
+//Precondition:NA
+//Postcondition:returns increment
 int Pseudorandom::getIncrement() const
 {
     return increment;
 }
+//Precondition:NA
+//Postcondition: returns modulus
 int Pseudorandom::getModulus() const
 {
     return modulus;
@@ -67,8 +74,8 @@ double Pseudorandom::generateNextIndirectNum()
     return static_cast<double>(seed) / modulus;
 }
 
-// Pre-Condition: 
-// Post-Condition:
+// Pre-Condition: NA
+// Post-Condition: displays pseudorandom menu
 void Pseudorandom::pseudorandomMenu()
 {
     Pseudorandom pseudorandom;
